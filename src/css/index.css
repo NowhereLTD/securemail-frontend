@@ -1,0 +1,260 @@
+body {
+  user-select: none;
+
+  --base: #FFF;
+  --base-dark: #20201F;
+
+  --primary: var(--base);
+  --secondary: var(--base);
+  --background: var(--base-dark);
+  --primary-text: var(--base-dark);
+  --accent: #2c2c2c;
+  --secondary-text: #FFF;
+  --navbar: var(--accent);
+  --navbar-text: #FFF;
+
+  background: var(--background) !important;
+  color: var(--primary-text) !important;
+
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.primary {
+  background-color: var(--primary) !important;
+  color: var(--primary-text) !important;
+}
+
+.primary-text {
+  color: var(--primary-text) !important;
+}
+
+.nav-wrapper {
+  background-color: var(--navbar) !important;
+  color: var(--navbar-text) !important;
+}
+
+.nav-wrapper * {
+  color: var(--navbar-text) !important;
+}
+
+
+
+main > article {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 1em;
+}
+
+.mail-boxes {
+  display: block;
+}
+
+.mail-search {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  main > article {
+    grid-template-columns: 1fr;
+  }
+
+  .mail > section > span {
+    display: none;
+  }
+
+  .mail-boxes {
+    display: none;
+  }
+
+  .mail-search {
+    display: block;
+  }
+
+  #searchTopBar {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+}
+
+
+
+main > article {
+  margin: 1em;
+}
+
+.card {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.modal {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.card-content {
+  margin-bottom: 2.5em;
+}
+
+.item-footer {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+nav .brand-logo {
+  grid-template-rows: 100%;
+  margin-left: 0.5em;
+  height: 100%;
+}
+
+.brand-logo > .brand-logo-image {
+  height: 100%;
+  margin-right: 0.1em;
+}
+
+.brand-logo-image > img {
+  height: 100%;
+}
+
+
+.active {
+  color: var(--secondary) !important;
+}
+
+
+input.valid {
+  border-bottom-color: var(--secondary) !important;
+  box-shadow: 0 1px 0 0 var(--secondary) !important;
+  webkit-box-shadow: 0 1px 0 0 var(--secondary) !important;
+}
+
+.search-keyword {
+  padding: 1em;
+  text-align: center;
+}
+
+.mentor-selector {
+  padding: 1em;
+}
+
+.mentor-selector span {
+  color: var(--secondary-text) !important;
+}
+
+
+.collapsible-header {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.collection {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.secondary-content {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.mail > section {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 3fr 1fr;
+}
+
+.mail > section > div {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 1em;
+}
+
+
+.mail > section > div > span {
+  text-align: center;
+  border-right: 1px solid var(--secondary-text) !important;
+}
+
+.sidenav {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.sidenav li>a {
+  color: var(--secondary-text) !important;
+}
+
+.sidenav li>a>i {
+  color: var(--secondary-text) !important;
+}
+
+.input-field {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.input-field > input {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+textarea {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.modal-footer {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+li.active {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.unread {
+  background-color: var(--accent) !important;
+}
+
+.mailModalTemplateContent {
+  display: flex;
+}
+
+#sendModal header .additionalReceiver {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.tabs {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.tab {
+  background-color: var(--background) !important;
+  color: var(--secondary-text) !important;
+}
+
+.tab > .active {
+  color: var(--primary) !important;
+}
+
+.tab > a {
+  color: var(--primary) !important;
+}
+
+#loginModalTemplate > .modal-content > article {
+  padding: 1em;
+}

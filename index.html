@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="src/js/index.js" charset="utf-8" type="module"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SecureMail Agency</title>
+  </head>
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <a class="brand-logo"><i class="material-icons">enhanced_encryption</i>SecureMail</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="modal-trigger" href="#userOverviewModalTemplate"><i class="material-icons">person</i></a></li>
+          </ul>
+          <form class="right">
+            <div class="input-field">
+              <input class="search" id="searchTopBar" type="search" required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+    <ul id="slide-out" class="sidenav">
+    <li>
+      <div class="user-view" id="userView">
+        <div class="background">
+          <img src="./assets/images/background.png">
+        </div>
+        <a><img class="circle" src="#profileImage#"></a>
+        <a><span class="white-text name">#username#</span></a>
+        <a><span class="white-text email">#email#</span></a>
+      </div>
+    </li>
+    <li class="filter" types='{"tags": true}' search="inbox">
+      <a class="waves-effect waves-light">
+        <i class="material-icons">all_inbox</i>
+        Inbox
+      </a>
+    </li>
+    <li class="filter" types='{"tags": true}' search="outbox">
+      <a class="waves-effect waves-light">
+        <i class="material-icons">outbox</i>
+        Sent
+      </a>
+    </li>
+    <!--<li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>-->
+  </ul>
+
+
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large teal lighten-1 waves-effect waves-light" id="openSendModalButton">
+      <i class="large material-icons">add</i>
+    </a>
+    <!--<ul>
+      <li><a class="btn-floating red modal-trigger" href="#sendModal"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>-->
+  </div>
+
+    <main>
+      <article>
+        <section>
+          <div class="mail-boxes">
+            <ul class="collapsible">
+              <li class="collapsible-header waves-effect waves-light filter" types='{"tags": true}' search="inbox">
+                <i class="material-icons">all_inbox</i>
+                Inbox
+                <!--<span class="new badge teal lighten-1">4</span>-->
+              </li>
+              <li class="collapsible-header waves-effect waves-light filter" types='{"tags": true}' search="outbox">
+                <i class="material-icons">outbox</i>
+                Sent
+                <!--<span class="badge">1</span>-->
+              </li>
+            </ul>
+          </div>
+
+          <div class="input-field mail-search">
+            <i class="material-icons prefix">search</i>
+            <input id="icon_prefix" type="text" class="validate search">
+            <label for="icon_prefix">Search</label>
+          </div>
+        </section>
+        <section>
+          <ul class="pagination"></ul>
+          <!-- TEMPLATE -->
+          <div id="sendModal" class="modal">
+            <div class="modal-content">
+              <h4>Write Mail</h4>
+              <div>
+                <header>
+                  <div class="input-field">
+                    <input id="sendModalReceiver" type="email" class="validate">
+                    <label for="sendModalReceiver">Receiver</label>
+                  </div>
+                  <div class="additionalReceiver">
+                    <div id="sendModalCC" class="chips">
+                      <input class="input" placeholder="CC">
+                    </div>
+                    <div id="sendModalBCC" class="chips">
+                      <input class="input" placeholder="BCC">
+                    </div>
+                  </div>
+                </header>
+                <div class="input-field">
+                  <input id="sendModalTitle" type="text" class="valid">
+                  <label for="sendModalTitle">Title</label>
+                </div>
+                <div class="input-field">
+                  <textarea id="sendModalText" class="materialize-textarea"></textarea>
+                  <label for="sendModalText">Message</label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a id="sendModalButton" class="modal-close waves-effect waves-light teal lighten-1 btn-flat" style="color: #FFF;">Send</a>
+            </div>
+          </div>
+
+          <div id="mailModalTemplate" class="modal">
+            <article class="modal-content">
+              <section class="mailModalTemplateContent">
+                <div>#author#</div>
+                <div>an #receiver#</div>
+                <div>#cc#</div>
+                <div>#bcc#</div>
+              </section>
+              <section class="card">
+                <div class="card-content">
+                  <h5>#title#</h5>
+                  <br>
+                  #message#
+                </div>
+              </section>
+            </article>
+            <footer class="modal-footer">
+              <a class="modal-close waves-effect waves-light teal lighten-1 btn-flat reply-button" style="color: #FFF;">Reply</a>
+            </footer>
+          </div>
+
+          <li class="collapsible-header waves-effect waves-light mail" id="mailIndexTemplate" style="display: none;">
+            <i class="material-icons">check_box_outline_blank</i>
+            <section>
+              <div>
+                <span>
+                  #author#
+                </span>
+                <div>
+                  #title#
+                </div>
+              </div>
+              <span class="badge" style="text-align: end;">
+                <i class="material-icons">delete_outline</i>
+                <i class="material-icons">archive</i>
+                <i class="material-icons">reply</i>
+              </span>
+            </section>
+          </li>
+          <ul class="collection mail-container" id="mailIndexParent"></ul>
+        </section>
+      </article>
+
+      <div id="userOverviewModalTemplate" class="modal">
+        <div class="modal-content">
+          <center>
+            <article>
+              <a><img height="100px" class="circle" src="#profileImage#"></a>
+              <br><br>
+              <h5>
+                #username#
+              </h5>
+              <h6>
+                #email#
+              </h6>
+            </article>
+          </center>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </main>
+
+    <div id="loginModalTemplate" class="modal">
+      <div class="modal-content">
+
+        <ul class="tabs">
+          <li class="tab" class="active"><a href="#loginModalLogin">Login</a></li>
+          <li class="tab"><a href="#loginModalRegister">Register</a></li>
+        </ul>
+        <article>
+          <div id="loginModalLogin">
+            <h4>Login</h4>
+            <div class="input-field">
+              <input id="loginModalEmail" type="email" class="valid">
+              <label for="loginModalEmail">Email</label>
+            </div>
+            <div class="input-field">
+              <input id="loginModalPassword" type="password" class="valid">
+              <label for="loginModalPassword">Password</label>
+            </div>
+            <a id="loginModalButton" class="waves-effect waves-light teal lighten-1 btn-flat" style="color: #FFF;">Login</a>
+          </div>
+          <div id="loginModalRegister">
+            <h4>Register</h4>
+            <div class="input-field">
+              <input id="registerModalEmail" type="text" class="valid">
+              <label for="registerModalEmail">Username</label>
+            </div>
+            <div class="input-field">
+              <input id="registerModalPassword" type="password" class="valid">
+              <label for="registerModalPassword">Password</label>
+            </div>
+            <div class="input-field">
+              <input id="registerSecondModalPassword" type="password" class="valid">
+              <label for="registerSecondModalPassword">Repeat password</label>
+            </div>
+            <a id="registerModalButton" class="waves-effect waves-light teal lighten-1 btn-flat" style="color: #FFF;">Register</a>
+          </div>
+        </article>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </body>
+</html>
